@@ -1,0 +1,28 @@
+{
+  "name": "markling",
+  "version": "0.0.1",
+  "description": "Transforms markling strings into React components",
+  "browser": "index.js",
+  "author": {
+    "name": "Mike Wang",
+    "email": "mikevonwang@gmail.com"
+  },
+  "repository": "github:mikevonwang/markling",
+  "license": "MIT",
+  "dependencies": {},
+  "peerDependencies": {
+    "react": ">=16.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^7.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0"
+  },
+  "keywords": [
+    "markup",
+    "template"
+  ]
+}
