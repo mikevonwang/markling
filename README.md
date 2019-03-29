@@ -16,7 +16,7 @@ After installation, there are 2 main steps to using Markling:
 import Markling from 'markling';
 ```
 
-If you use Webpack, you could instead include Markling in Webpack's `providePlugin()`, and avoid having to write the above `import` statement over and over:
+If you use Webpack, you could instead include Markling in Webpack's `ProvidePlugin()`, and avoid having to write the above `import` statement over and over:
 
 ```javascript
 plugins: [
@@ -28,7 +28,7 @@ plugins: [
 ],
 ```
 
-**2.** Use `Markling.render` inside any text React component to transform markling language into formatted React text components:
+**2.** Use `Markling.render` inside any text React component to transform markling strings into formatted React text components:
 
 ```javascript
 function MyComponent(props) {
@@ -50,7 +50,7 @@ function MyComponent(props) {
 
 ### `Markling.render(string, props)`
 
-Transforms markling into formatted React text components, interpolating with a props object.
+Transforms a markling string into formatted React text components, interpolating with a props object.
 
 #### Parameters
 
