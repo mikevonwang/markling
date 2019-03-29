@@ -78,14 +78,17 @@ Markling.render(`_(This) is a fragment, and so is *(this).`);
 
 There are 6 signifiers, each corresponding to a different HTML tag:
 
-| Signifier | HTML tag |
-| ---       | ---      |
-| `_`       | `em`     |
-| `*`       | `strong` |
-| `^`       | `sup`    |
-| `~`       | `sub`    |
-| `@`       | `a`      |
-| ```       | `code`   |
+- `_`       | `<em>`
+
+- `*`       | `<strong>`
+
+- `^`       | `<sup>`
+
+- `~`       | `<sub>`
+
+- `@`       | `<a>`
+
+- `` ` ``   | `<code>`  
 
 The above example would thus be transformed by `Markling.render()` to:
 
