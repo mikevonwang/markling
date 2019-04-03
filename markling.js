@@ -12,7 +12,7 @@ function render(string, props = {}) {
     const a = string.charAt(i);
     const b = string.charAt(i+1);
     if (a === ')') {
-      if (ignore_count === 0) {
+      if (ignore_count === 0 && levels.length > 0) {
         let element = levels.pop();
         element.props.children.push(temp);
         if (element.type === 'a') {
@@ -72,7 +72,9 @@ function render(string, props = {}) {
         levels.push(React.createElement(tag, {key: i}, []));
       }
       else {
-        ignore_count += 1;
+        if (levels.length > 0) {
+          ignore_count += 1;
+        }
         temp += a;
       }
     }
