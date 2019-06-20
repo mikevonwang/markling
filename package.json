@@ -1,6 +1,6 @@
 {
   "name": "markling",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Transforms markling strings into React components",
   "browser": "index.js",
   "author": {
