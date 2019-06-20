@@ -4,7 +4,7 @@ function render(string, props = {}) {
   let output = [];
   let temp = '';
   let levels = [];
-  let ignore_count = 0;
+  let is_special = [];
 
   const options = ['_','*','^','~','@','`'];
 
@@ -12,7 +12,7 @@ function render(string, props = {}) {
     const a = string.charAt(i);
     const b = string.charAt(i+1);
     if (a === ')') {
-      if (ignore_count === 0 && levels.length > 0) {
+      if (is_special.pop() === true) {
         let element = levels.pop();
         element.props.children.push(temp);
         if (element.type === 'a') {
@@ -34,7 +34,6 @@ function render(string, props = {}) {
         temp = '';
       }
       else {
-        ignore_count -= 1;
         temp += a;
       }
     }
@@ -48,6 +47,7 @@ function render(string, props = {}) {
         }
         temp = '';
         i++;
+        is_special.push(true);
         let tag;
         switch (a) {
           case '_':
@@ -72,9 +72,7 @@ function render(string, props = {}) {
         levels.push(React.createElement(tag, {key: i}, []));
       }
       else {
-        if (levels.length > 0) {
-          ignore_count += 1;
-        }
+        is_special.push(false);
         temp += a;
       }
     }
