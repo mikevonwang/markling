@@ -1,10 +1,14 @@
 import React from 'react';
 
 function render(string, props = {}) {
+  // an array of markling React elements and strings
   let output = [];
+  // a string holding the currently-being-built fragment, markling or not
   let temp = '';
+  // an array holding the parent markling React elements of the current fragment
   let levels = [];
-  let is_special = [];
+  // an array holding booleans for marklingness; sequential booleans correspond to nested markling/nonmarkling fragments
+  let is_markling = [];
 
   const options = ['_','*','^','~','@','`'];
 
@@ -12,7 +16,7 @@ function render(string, props = {}) {
     const a = string.charAt(i);
     const b = string.charAt(i+1);
     if (a === ')') {
-      if (is_special.pop() === true) {
+      if (is_markling.pop() === true) {
         let element = levels.pop();
         element.props.children.push(temp);
         if (element.type === 'a') {
@@ -47,7 +51,7 @@ function render(string, props = {}) {
         }
         temp = '';
         i++;
-        is_special.push(true);
+        is_markling.push(true);
         let tag;
         switch (a) {
           case '_':
@@ -72,7 +76,7 @@ function render(string, props = {}) {
         levels.push(React.createElement(tag, {key: i}, []));
       }
       else {
-        is_special.push(false);
+        is_markling.push(false);
         temp += a;
       }
     }
